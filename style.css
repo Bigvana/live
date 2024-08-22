@@ -1,0 +1,250 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.live-stream {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.live-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.user-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #fff;
+}
+
+.user-name {
+    font-size: 14px;
+}
+
+.viewers {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.comment-section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    overflow: hidden;
+    height: 60px; /* Tambah tinggi untuk memastikan komentar terlihat */
+    box-sizing: border-box; /* Pastikan padding/border tidak menambah tinggi elemen */
+    padding: 5px 10px; /* Tambahkan padding untuk memberikan ruang */
+}
+
+.comments {
+    white-space: nowrap;
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-comments 30s linear infinite;
+}
+
+@keyframes scroll-comments {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+.comment {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.comment img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.comment span {
+    font-size: 14px;
+}
+
+/* CSS untuk Live Love Emoji */
+.live-love-emoji {
+    position: absolute;
+    right: 10px;
+    bottom: 80px; /* Naikkan posisi supaya tidak menutupi komentar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.live-love-emoji img {
+    width: 336px;
+    height: 500px;
+    margin-bottom: 10px;
+    animation: float-up 3s infinite ease-in-out;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+/* Media Query untuk perangkat seluler */
+@media (max-width: 768px) {
+    .live-love-emoji img {
+        width: 20px;
+        height: 20px;
+    }
+    .live-love-emoji {
+        bottom: 80px; /* Pastikan emoji tidak menutupi komentar di perangkat seluler */
+        right: 20px;
+    }
+
+    .container {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .live-stream {
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .comment-section {
+        bottom: 0;
+        height: 90px; /* Tinggi yang lebih besar untuk memastikan komentar terlihat */
+    }
+}
+
+.gift-section {
+    position: absolute;
+    bottom: 90px; /* Naikkan sedikit agar tidak menutupi komentar */
+    left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.gift-container {
+    position: relative;
+    margin-right: 10px;
+}
+
+.gift {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.live-labels {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    z-index: 1001;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    z-index: 1000;
+}
+
+.popup h2 {
+    margin: 0 0 10px;
+}
+
+.popup .btn {
+    display: inline-block;
+    background-color: #ff4757;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.popup .btn:hover {
+    background-color: #e63946;
+}
+
+.blurred {
+    filter: blur(5px);
+}
